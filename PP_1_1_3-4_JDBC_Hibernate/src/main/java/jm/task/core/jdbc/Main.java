@@ -1,18 +1,16 @@
 package jm.task.core.jdbc;
 
-import jm.task.core.jdbc.dao.UserDao;
-import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
-        UserDao userDao = new UserDaoJDBCImpl();
-        UserService userService = new UserServiceImpl(userDao);
+    public static void main(String[] args) throws SQLException {
+        UserService userService = new UserServiceImpl();
         UserCase userCase = new UserCase(userService);
         userCase.start();
     }
